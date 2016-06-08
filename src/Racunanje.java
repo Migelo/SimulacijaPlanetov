@@ -6,13 +6,15 @@ public class Racunanje {
 		for (Double i : koordinate ){
 			
 		}
-		
 		return x;
 	}
-	public static double sila(double x, double y, double z) {
-		double sila = 0;
-		//sila = -(M*G/(x**2+y**2))
-		
+	public static double sila(Tocka polozaj) {
+		double sila, silaX, silaY, silaZ = 0;
+		double radij = Math.sqrt(Math.pow(polozaj.vrniElement(1), 2) + Math.pow(polozaj.vrniElement(2), 2) + Math.pow(polozaj.vrniElement(3), 2));
+		sila = -1/Math.pow(radij,3);		
+		silaX = polozaj.vrniElement(1)/radij;
+		silaY = polozaj.vrniElement(2)/radij;
+		silaZ = polozaj.vrniElement(3)/radij;
 		return sila;
 	}
 }
