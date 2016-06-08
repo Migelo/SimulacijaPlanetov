@@ -11,7 +11,7 @@ public class Racunanje {
 	}
 	public static double sila(double x, double y, double z) {
 		double sila = 0;
-		sila = -(M*G/(x**2+y**2))
+		//sila = -(M*G/(x**2+y**2))
 		
 		return sila;
 	}
