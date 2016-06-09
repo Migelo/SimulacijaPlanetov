@@ -1,4 +1,7 @@
+import java.awt.Graphics;
 import java.util.Vector;
+
+import javax.swing.JPanel;
 
 @SuppressWarnings("unused")
 public class Planet {
@@ -14,6 +17,7 @@ public class Planet {
 		this.polozaj = polozaj;
 		this.hitrost = hitrost;
 		this.pospesek = pospesek;
+		this.zgodovina = new Vector<Tocka>();
 	}
 
 
@@ -35,6 +39,10 @@ public class Planet {
 		this.polozaj = this.polozaj.pristej(dx, dy, dz);
 	}
 	
+	/**Sprejme Točko "podatki" in jo nastavi elementu Planet. (1. položaj, 2. hitrost, 3. pospešek).
+	 * @param izbira
+	 * @param podatki
+	 */
 	public void nastavi(int izbira, Tocka podatki){
 		if (izbira == 1){
 			this.polozaj = podatki;
@@ -45,5 +53,21 @@ public class Planet {
 		if (izbira == 3){
 			this.pospesek = podatki;
 		}
+	}
+
+
+	public Vector<Tocka> getZgodovina() {
+		return zgodovina;
+	}
+
+
+	public void setZgodovina(Vector<Tocka> zgodovina) {
+		this.zgodovina = zgodovina;
+	}
+
+
+	public void narisi(Graphics g) {
+		g.fillOval((int)polozaj.vrniElement(1)-5+100, (int)polozaj.vrniElement(2)-5+100, 10, 10);
+		
 	}
 }
