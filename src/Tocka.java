@@ -13,10 +13,20 @@ public class Tocka {
 		this.z += z;
 		return null;
 	}
+	public Tocka nastavi(double x, double y, double z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		return null;
+	}
 	@Override
 	public String toString() {
 		return "Tocka [x=" + x + ", y=" + y + ", z=" + z + "]";
 	}
+	/**Vrne element točke označen z i. (x, y, z)
+	 * @param i
+	 * @return
+	 */
 	public double vrniElement(int i){
 		if (i == 1){
 			return this.x;
