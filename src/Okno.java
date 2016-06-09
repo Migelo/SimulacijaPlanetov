@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,33 +15,18 @@ public class Okno extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Okno frame = new Okno();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public Okno() {
+	public Okno(Stanje stanje) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[440px][39.00]", "[67px,grow][bottom]"));
+		contentPane.setLayout(new MigLayout("", "[500px][39.00]", "[67px,grow][bottom]"));
+
 		
-		JPanel panel = new Platno();
+		JPanel panel = new Platno(stanje);
 		contentPane.add(panel, "cell 0 0,grow");
 		
 		JButton btnNewButton = new JButton("Play");
