@@ -1,5 +1,5 @@
 # SimulacijaPlanetov
-Repository za projekt SimulacijaPlanetov pri predmetu Računalništvo 2.
+Repository za projekt SimulacijaPlanetov pri predmetu Programiranje 2.
 
 ## Osnovna naloga
 * Simulacija gibanja planetov našega osončja.
