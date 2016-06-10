@@ -6,7 +6,8 @@ public class SimulacijePlanetov {
 		
 		Tocka a = new Tocka(1, 0, 0);
 		Tocka prazna = new Tocka(0,0,0);
-		Tocka c = new Tocka(0, Math.sqrt(1/Racunanje.radij(a)),0);
+		//Tocka c = new Tocka(0, Math.sqrt(1/Racunanje.radij(a)),0);
+		Tocka c = new Tocka(0, 1.1,0);
 		Planet b = new Planet(a, c, prazna);
 		
 		Tocka aa = new Tocka(.75, 0, 0);
