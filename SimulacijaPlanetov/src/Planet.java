@@ -67,7 +67,7 @@ public class Planet {
 
 
 	public void narisi(Graphics g) {
-		g.fillOval((int)polozaj.vrniElement(1)-5+100, (int)polozaj.vrniElement(2)-5+100, 10, 10);
+		g.fillOval((int)(polozaj.vrniElement(1)*100)-5+100, (int)(polozaj.vrniElement(2)*100)-5+100, 10, 10);
 		
 	}
 }

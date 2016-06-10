@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -13,7 +14,6 @@ public class Platno extends JPanel {
 	public Platno(Stanje stanje){
 		super();
 		this.stanje = stanje;
-		
 	}
 
 	public Dimension getPreferredSize(){
@@ -22,7 +22,9 @@ public class Platno extends JPanel {
 	
 	public void paintComponent(Graphics g){
 		stanje.narisi(g);
-		//g.fillOval(100, 100, 100, 100);
+		g.setColor(Color.yellow);
+		g.fillOval(100-10, 100-10, 20, 20);
+		repaint();
 	}
 	
 }

@@ -20,18 +20,19 @@ public class Stanje {
 	
 	public void narisi(Graphics g){
 		int i = 0;
-		while (i  < 2000){
+		while (i  < 1){
 			for (Planet planet : planeti){
 				Racunanje.sila2(planet);
 				planet.narisi(g);
-				System.out.println(planet.vrniPolozaj());
+				//System.out.println(planet.vrniPolozaj());
 			}
-//			try {
-//				Thread.sleep(40);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			
+			try {
+				Thread.sleep(4);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			i++;
 		}
 	}
