@@ -13,6 +13,12 @@ public class Tocka {
 		this.z += z;
 		return null;
 	}
+	public Tocka pristejTocko(Tocka pristej){
+		this.x += pristej.x;
+		this.y += pristej.y;
+		this.z += pristej.z;
+		return this;
+	}
 	public Tocka nastavi(double x, double y, double z) {
 		this.x = x;
 		this.y = y;
