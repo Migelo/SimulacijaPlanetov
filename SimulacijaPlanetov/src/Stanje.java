@@ -22,7 +22,7 @@ public class Stanje {
 		int i = 0;
 		while (i  < 1){
 			for (Planet planet : planeti){
-				Racunanje.sila2(planet);
+				Racunanje.naslednjiKorak(planet, "euler", 0.001);
 				planet.narisi(g);
 				//System.out.println(planet.vrniPolozaj());
 			}
