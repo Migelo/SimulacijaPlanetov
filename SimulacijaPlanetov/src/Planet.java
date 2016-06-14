@@ -34,7 +34,7 @@ public class Planet {
 	public Tocka vrniPospesek(){
 		return this.pospesek;
 	}
-
+//ta funkcija se ne uporablja nikjer zaenk
 	public void premakni(double dx, double dy, double dz){
 		this.polozaj = this.polozaj.pristej(dx, dy, dz);
 	}
@@ -67,7 +67,7 @@ public class Planet {
 
 
 	public void narisi(Graphics g) {
-		g.fillOval((int)(polozaj.vrniElement(1)*100)-5+100, (int)(polozaj.vrniElement(2)*100)-5+100, 10, 10);
+		g.fillOval((int)(polozaj.vrniElement(1)*100)-5+250, (int)(polozaj.vrniElement(2)*100)-5+150, 10, 10);
 		
 	}
 }

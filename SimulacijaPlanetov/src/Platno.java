@@ -23,7 +23,7 @@ public class Platno extends JPanel {
 	public void paintComponent(Graphics g){
 		stanje.narisi(g);
 		g.setColor(Color.yellow);
-		g.fillOval(100-10, 100-10, 20, 20);
+		g.fillOval(250-10, 150-10, 20, 20);
 		repaint();
 	}
 	
