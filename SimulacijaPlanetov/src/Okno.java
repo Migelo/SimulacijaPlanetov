@@ -1,9 +1,8 @@
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 import net.miginfocom.swing.MigLayout;
 
 public class Okno extends JFrame {
@@ -27,20 +26,21 @@ public class Okno extends JFrame {
 
 		
 		JPanel panel = new Platno(stanje);
-		contentPane.add(panel, "cell 0 0,grow");
+		contentPane.add(panel, "cell 0 0, grow");
 		
-		JButton btnNewButton = new JButton("Play");
-		contentPane.add(btnNewButton, "flowx,cell 0 1,alignx left,growy");
+		JButton btnPlay = new JButton("Play");
+		contentPane.add(btnPlay, "flowx,cell 0 1, alignx left, growy");
 		
 		JButton btnPause = new JButton("Pause");
-		contentPane.add(btnPause, "cell 0 1,alignx left,growy");
+		contentPane.add(btnPause, "cell 0 1, alignx left, growy");
 		
-		JButton btnPlay = new JButton("Stop");
-		btnPlay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		contentPane.add(btnPlay, "cell 0 1,alignx left,growy");
+		JButton btnStop = new JButton("Stop");
+		contentPane.add(btnStop, "cell 0 1, alignx left, growy");
+
+//		btnPlay.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
 	}
 
 }

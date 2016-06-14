@@ -11,13 +11,13 @@ public class Stanje {
 	ArrayList<Planet> planeti;
 	boolean sled;
 	Color ozadje;
-	
+
 	public Stanje(ArrayList<Planet> planeti){
 		this.planeti = planeti;
 		this.sled = true;
 		this.ozadje = Color.GRAY;
 	}
-	
+
 	public void narisi(Graphics g){
 		int i = 0;
 		while (i  < 1){
@@ -26,7 +26,7 @@ public class Stanje {
 				planet.narisi(g);
 				//System.out.println(planet.vrniPolozaj());
 			}
-			
+
 			try {
 				Thread.sleep(4);
 			} catch (InterruptedException e) {
