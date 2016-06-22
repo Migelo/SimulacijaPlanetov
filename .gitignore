@@ -12,9 +12,10 @@
 hs_err_pid*
 
 bin/
-.classpath
 
-.project
+#.classpath
+
+#.project
 
 *.zip
 .DS_Store
