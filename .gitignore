@@ -19,3 +19,5 @@ bin/
 
 *.zip
 .DS_Store
+
+!miglayout15-swing.jar
