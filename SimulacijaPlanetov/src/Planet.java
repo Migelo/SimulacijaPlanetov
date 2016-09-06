@@ -1,6 +1,4 @@
-import java.awt.Graphics;
 import java.util.Vector;
-
 import javax.swing.JPanel;
 
 @SuppressWarnings("unused")
@@ -66,8 +64,7 @@ public class Planet {
 	}
 
 
-	public void narisi(Graphics g) {
-		g.fillOval((int)(polozaj.vrniElement(1)*100)-5+250, (int)(polozaj.vrniElement(2)*100)-5+150, 10, 10);
-		
-	}
+//	public void narisi(Graphics g) {
+//		g.fillOval((int)(polozaj.vrniElement(1)*100)-5+250, (int)(polozaj.vrniElement(2)*100)-5+150, 10, 10);
+//	}
 }
