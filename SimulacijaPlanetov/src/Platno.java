@@ -10,7 +10,6 @@ public class Platno extends JPanel {
 	 Tukaj so stvari potrebne za platno kjer rišemo gibanje planetov.
 	 Platno riše planete, katerih položaj dobi iz stanja.
 	 */
-	private static final long serialVersionUID = 1L;
 	private Stanje stanje;
 	public int sirina = 500;
 	public int visina = 500;
@@ -19,7 +18,7 @@ public class Platno extends JPanel {
 	public Platno(Stanje stanje){
 		super();
 		this.stanje = stanje;
-		setBackground(Color.white);
+		setBackground(Color.black);
 		setPreferredSize(new Dimension(sirina, visina));
 		setBorder(BorderFactory.createLineBorder(Color.black));
 	}
@@ -27,7 +26,7 @@ public class Platno extends JPanel {
 	public void paintComponent(Graphics g){
 		//nariši sonce
 		g.setColor(Color.yellow);
-		g.fillOval(250-10, 150-10, 20, 20);
+		g.fillOval(sirina/2, visina/2, 20, 20);
 		repaint();
 	}
 	

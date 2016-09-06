@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+
 public class SimulacijePlanetov {
 
 	public static void main(String[] args) {
@@ -18,7 +20,10 @@ public class SimulacijePlanetov {
 		planeti.add(mars);
 		planeti.add(zemlja);
 		Stanje stanje = new Stanje(planeti);
-		Okno frame = new Okno(stanje);
-		frame.setVisible(true);		
+		JFrame okno = new Okno();
+		okno.pack();
+		okno.setVisible(true);
+//		Okno frame = new Okno();
+//		frame.setVisible(true);		
 	}
 }
