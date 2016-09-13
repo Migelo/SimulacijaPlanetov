@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 public class Gumbi extends JPanel implements ActionListener {
 	
 	private Okno okno;
-	public JButton gumb1 = new JButton("Start!");
-	private JLabel besedilo = new JLabel("Simulacija planetov se zaćne s pritiskom na gumb Start.");
+	public JButton gumbStart = new JButton("Start!");
+	private JLabel besedilo = new JLabel("Simulacija planetov se začne s pritiskom na gumb Start.");
 	private GridBagConstraints gumb1Layout = new GridBagConstraints();
 	private GridBagConstraints besediloLayout = new GridBagConstraints();
 
@@ -23,9 +23,9 @@ public class Gumbi extends JPanel implements ActionListener {
 		setLayout(new GridBagLayout());
 		setBackground(Color.white);
 		pripraviBesedilo();
-		pripraviGumb1(gumb1);
+		pripraviGumb1(gumbStart);
 		
-		gumb1.addActionListener(this);
+		gumbStart.addActionListener(this);
 	}
 
 	public void pripraviBesedilo () {
@@ -43,12 +43,10 @@ public class Gumbi extends JPanel implements ActionListener {
 		gumb1Layout.gridx = 0;
 		gumb1Layout.gridy = 2;
 		add(gumb1, gumb1Layout);
-		revalidate();
-		repaint();
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == gumb1) {
+		if (e.getSource() == gumbStart) {
 			okno.pozeni();
 		}
 	}
