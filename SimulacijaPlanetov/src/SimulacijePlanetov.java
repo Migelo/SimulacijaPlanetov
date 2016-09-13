@@ -19,8 +19,7 @@ public class SimulacijePlanetov {
 		ArrayList<Planet> planeti = new ArrayList<Planet>();
 		planeti.add(mars);
 		planeti.add(zemlja);
-		Stanje stanje = new Stanje(planeti);
-		JFrame okno = new Okno(stanje);
+		JFrame okno = new Okno(planeti);
 		okno.pack();
 		okno.setVisible(true);
 //		Okno frame = new Okno();
