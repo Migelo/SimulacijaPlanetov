@@ -1,6 +1,5 @@
 public class Racunanje {
 	@SuppressWarnings("unused")
-	private Stanje stanje;
 	public static double[] sila(Tocka polozaj) {
 		double sila, silaX, silaY, silaZ = 0;
 		double radij = Math.sqrt(Math.pow(polozaj.vrniElement(1), 2) + Math.pow(polozaj.vrniElement(2), 2) + Math.pow(polozaj.vrniElement(3), 2));

@@ -5,15 +5,11 @@ import java.awt.Graphics;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-//import gui.Platno;
-
 public class Platno extends JPanel {
-	private static final long serialVersionUID = 1L;
 	/**
 	 Tukaj so stvari potrebne za platno kjer rišemo gibanje planetov.
 	 Platno riše planete, katerih položaj dobi iz stanja.
 	 */
-//	private Okno okno;
 	private Stanje stanje;
 	public int sirina = 500;
 	public int visina = 500;
@@ -22,9 +18,9 @@ public class Platno extends JPanel {
 	public Platno(Stanje stanje){
 		super();
 		this.stanje = stanje;
-		setBackground(Color.white);
+		setBackground(Color.black);
 		setPreferredSize(new Dimension(sirina, visina));
-		setBorder(BorderFactory.createLineBorder(Color.black));		
+		setBorder(BorderFactory.createLineBorder(Color.black));
 	}
 	
 	public void paintComponent(Graphics g){
@@ -35,16 +31,11 @@ public class Platno extends JPanel {
 	}
 	
 	//rišemo planete
-	public void narisiPlanete(Graphics g, Stanje stanje){
+	public void narisiPlanete(Stanje stanje){
 		for (Planet planet : stanje.planeti){
-//			Racunanje.naslednjiKorak(planet, "rk", 0.001);
+			Racunanje.naslednjiKorak(planet, "rk", 0.001);
 			g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*100)-5+250, (int)(planet.vrniPolozaj().vrniElement(2)*100)-5+150, 10, 10);
-			repaint();
 		}
 	}
-//	public Platno getPlatno() {
-//		return this.platno;
-//	}
-
 }
 
