@@ -35,7 +35,7 @@ public class Platno extends JPanel {
 	}
 	
 	//rišemo planete
-	public void narisiPlanete(Graphics g, Stanje stanje){
+	public void narisiPlanete(Stanje stanje){
 		for (Planet planet : stanje.planeti){
 //			Racunanje.naslednjiKorak(planet, "rk", 0.001);
 			g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*100)-5+250, (int)(planet.vrniPolozaj().vrniElement(2)*100)-5+150, 10, 10);

@@ -48,7 +48,7 @@ public  class Vlakno {
     				Racunanje.naslednjiKorak(planet, "rk", 0.001); 
 //    				System.out.print(planet);
     			}
-    			platno.narisiPlanete(g, stanje);
+    			platno.narisiPlanete(stanje);
     		}
 
         	if (prekiniAlgoritem == true) {
