@@ -6,8 +6,6 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 
 
-//import gui.Platno;
-
 public class Okno extends JFrame {
 
 	/**
@@ -16,17 +14,23 @@ public class Okno extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private Platno platno;
 	private Stanje stanje;
+	private Vlakno vlakno;
+	private Okno okno;
+	private Gumbi gumbi;
+	private GridBagConstraints gumbiLayout = new GridBagConstraints();
 	private Container kontejner;
 	private GridBagConstraints platnoLayout = new GridBagConstraints();
 
 	/**
 	 * Create the frame.
 	 */
-	public Okno() {
+	public Okno(Stanje stanje) {
 		super();
 		setLayout(new GridBagLayout());
 		kontejner = this.getContentPane();
 		pripraviKontejner();
+		this.stanje = stanje;
+		vlakno = new Vlakno(stanje, platno);
 	}
 		
 	public void pripraviKontejner(){
@@ -37,10 +41,26 @@ public class Okno extends JFrame {
 		platnoLayout.gridy = 0;
 		kontejner.add(platno, platnoLayout);
 		kontejner = this.getContentPane();
-
-
 		
+		gumbi = new Gumbi(this);
+		gumbiLayout.gridx = 0;
+		gumbiLayout.gridy = 1;
+		kontejner.add(gumbi, gumbiLayout);
 	}
 
+	public Container getKontejner() {
+		return kontejner;
+	}
 
+	public void setKontejner(Container kontejner) {
+		this.kontejner = kontejner;
+	}
+
+	public void pozeni() {
+		try {
+			vlakno.narediVlakno();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
