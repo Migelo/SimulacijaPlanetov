@@ -21,8 +21,6 @@ public class SimulacijePlanetov {
 		planeti.add(zemlja);
 		JFrame okno = new Okno(planeti);
 		okno.pack();
-		okno.setVisible(true);
-//		Okno frame = new Okno();
-//		frame.setVisible(true);		
+		okno.setVisible(true);	
 	}
 }
