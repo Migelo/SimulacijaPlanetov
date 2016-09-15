@@ -7,14 +7,18 @@ public class Planet {
 	private Tocka polozaj;
 	private Tocka hitrost;
 	private Tocka pospesek;
+	private double masa;
+	private String ime;
 
 	//zgodovina premikov
 	private Vector<Tocka> zgodovina;
 
-	public Planet(Tocka polozaj, Tocka hitrost, Tocka pospesek){
+	public Planet(Tocka polozaj, Tocka hitrost, Tocka pospesek, double masa, String ime){
 		this.polozaj = polozaj;
 		this.hitrost = hitrost;
 		this.pospesek = pospesek;
+		this.masa = masa;
+		this.ime = ime;
 		this.zgodovina = new Vector<Tocka>();
 	}
 
@@ -32,7 +36,17 @@ public class Planet {
 	public Tocka vrniPospesek(){
 		return this.pospesek;
 	}
-//ta funkcija se ne uporablja nikjer zaenk
+	public double vrniMaso(){
+		return this.masa;
+	}
+	
+public String getIme() {
+		return ime;
+	}
+
+
+
+	//ta funkcija se ne uporablja nikjer zaenk
 	public void premakni(double dx, double dy, double dz){
 		this.polozaj = this.polozaj.pristej(dx, dy, dz);
 	}

@@ -43,7 +43,7 @@ public class Okno extends JFrame {
 		
 	public void pozeni() {
 		if (stoparca == null) {
-			stoparca = new Timer(50, platno);
+			stoparca = new Timer(16, platno);
 		}
 		stoparca.start();
 	}

@@ -1,18 +1,40 @@
+import java.awt.List;
+
 public class Racunanje {
 	@SuppressWarnings("unused")
 
-	public static double[] sila(Tocka polozaj) {
+	public static double[] sila(java.util.List<Planet> planeti, Tocka polozaj, String ime) {
 		double sila, silaX, silaY, silaZ = 0;
-		double radij = Math.sqrt(Math.pow(polozaj.vrniElement(1), 2) + Math.pow(polozaj.vrniElement(2), 2) + Math.pow(polozaj.vrniElement(3), 2));
-		sila = -1/Math.pow(radij,3);
+		double G = 6.67*Math.pow(10, -11);
+		sila = 0;
+		silaX = 0;
+		silaY = 0;
+		silaZ = 0;
 		double[] silaTocka = new double[3];
-//		silaX = sila * polozaj.vrniElement(1);
-//		silaY = sila * polozaj.vrniElement(2);
-//		silaZ = sila * polozaj.vrniElement(3);
+		for (Planet planet : planeti){
+			sila = 0;
+//			if (planet.vrniPolozaj().vrniElement(1) == polozaj.vrniElement(1) && planet.vrniPolozaj().vrniElement(2) == polozaj.vrniElement(2) && planet.vrniPolozaj().vrniElement(3) == polozaj.vrniElement(3)){
+			if (planet.getIme() == ime){
+//			System.out.println("Skip " + planet.getIme() + " " + ime);
+			}
+			else{
+//				System.out.println("Not skip " + planet.getIme() + " " + ime);
+				double radij = Math.sqrt(Math.pow((polozaj.vrniElement(1)-planet.vrniPolozaj().vrniElement(1)), 2) + Math.pow((polozaj.vrniElement(2)-planet.vrniPolozaj().vrniElement(2)), 2));		
+//				sila = -planet.vrniMaso()*G/Math.pow(radij,3);
+				sila = -planet.vrniMaso()/Math.pow(radij,3);
+				silaX += sila * (polozaj.vrniElement(1) - planet.vrniPolozaj().vrniElement(1));
+				silaY += sila * (polozaj.vrniElement(2) - planet.vrniPolozaj().vrniElement(2));
+				silaZ += sila * (polozaj.vrniElement(3) - planet.vrniPolozaj().vrniElement(3));
+//				System.out.println("Sila: " + sila);
+//				System.out.println("SilaX: " + silaX);
+//				System.out.println("SilaY: " + silaY);
+//				System.out.println("SilaZ: " + silaZ);
+			}
+		}
 		//Tocka silaTocka = new Tocka(silaX, silaY, silaZ);
-		silaTocka[0] = sila * polozaj.vrniElement(1);
-		silaTocka[1] = sila * polozaj.vrniElement(2);
-		silaTocka[2] = sila * polozaj.vrniElement(3);
+		silaTocka[0] = silaX;
+		silaTocka[1] = silaY;
+		silaTocka[2] = 0;
 		return silaTocka;
 	}
 	/** Za dani Planet po metodi "euler" oz. "rk" s korakom dt izračuna naslednji korak planetu in mu nastavi položaj, hitrost, pospešek in doda položaj v zgodovino položajev.
@@ -21,34 +43,35 @@ public class Racunanje {
 	 * @param dt
 	 * @return
 	 */
-	public static Planet naslednjiKorak(Planet planet, String izbira, double dt) {
-		double sila, silaX, silaY, silaZ = 0;
-		Tocka polozaj = planet.vrniPolozaj();
-		double radij = radij(polozaj);
-		sila = -1/Math.pow(radij,3);		
-		silaX = sila * polozaj.vrniElement(1);
-		silaY = sila * polozaj.vrniElement(2);
-		silaZ = sila * polozaj.vrniElement(3);
-		if (izbira == "euler") {planet = Euler(planet, silaX, silaY, silaZ, dt);}
-		else if (izbira == "rk") {planet = RungeKutta4(planet, silaX, silaY, silaZ, dt);}
+	public static Planet naslednjiKorak(java.util.List<Planet> planeti, Planet planet, String izbira, double dt) {
+//		double sila, silaX, silaY, silaZ = 0;
+//		Tocka polozaj = planet.vrniPolozaj();
+//		double radij = radij(polozaj);
+//		sila = -1/Math.pow(radij,3);		
+//		silaX = sila * polozaj.vrniElement(1);
+//		silaY = sila * polozaj.vrniElement(2);
+//		silaZ = sila * polozaj.vrniElement(3);
+		
+//		if (izbira == "euler") {planet = Euler(planet, dt);}
+		if (izbira == "rk") {planet = RungeKutta4(planeti, planet, dt);}
 		else{throw new IllegalArgumentException("Metoda je 'euler' oz. 'rk'.");}
 		return planet;
 	}
 	
 	
-	public static Planet Euler(Planet planet, double silaX, double silaY, double silaZ, double dt){
-		Tocka silaTocka = new Tocka(silaX, silaY, silaZ);
-		Tocka novaHitrost = new Tocka(silaX * dt + planet.vrniHitrost().vrniElement(1), silaY * dt + planet.vrniHitrost().vrniElement(2), silaZ * dt + planet.vrniHitrost().vrniElement(3));
-		Tocka novPremik = new Tocka(novaHitrost.vrniElement(1) * dt + planet.vrniPolozaj().vrniElement(1), novaHitrost.vrniElement(2) * dt + planet.vrniPolozaj().vrniElement(2), novaHitrost.vrniElement(3) * dt + planet.vrniPolozaj().vrniElement(3));
-		planet.nastavi(1, novPremik);
-		planet.nastavi(2, novaHitrost);
-		planet.nastavi(3, silaTocka);
-		planet.getZgodovina().add(novPremik);
-		return planet;
-	}
+//	public static Planet Euler(Planet planet, double silaX, double silaY, double silaZ, double dt){
+//		Tocka silaTocka = new Tocka(silaX, silaY, silaZ);
+//		Tocka novaHitrost = new Tocka(silaX * dt + planet.vrniHitrost().vrniElement(1), silaY * dt + planet.vrniHitrost().vrniElement(2), silaZ * dt + planet.vrniHitrost().vrniElement(3));
+//		Tocka novPremik = new Tocka(novaHitrost.vrniElement(1) * dt + planet.vrniPolozaj().vrniElement(1), novaHitrost.vrniElement(2) * dt + planet.vrniPolozaj().vrniElement(2), novaHitrost.vrniElement(3) * dt + planet.vrniPolozaj().vrniElement(3));
+//		planet.nastavi(1, novPremik);
+//		planet.nastavi(2, novaHitrost);
+//		planet.nastavi(3, silaTocka);
+//		planet.getZgodovina().add(novPremik);
+//		return planet;
+//	}
 	
-	public static Planet RungeKutta4(Planet planet, double silaX, double silaY, double silaZ, double dt){
-		Tocka silaTocka = new Tocka(silaX, silaY, silaZ);
+	public static Planet RungeKutta4(java.util.List<Planet> planeti, Planet planet, double dt){
+//		Tocka silaTocka = new Tocka(silaX, silaY, silaZ);
 		
 		double[] k1 = new double[3];
 		double[] k2 = new double[3];
@@ -58,26 +81,26 @@ public class Racunanje {
 		double[] l2 = new double[3];
 		double[] l3 = new double[3];
 		double[] l4 = new double[3];
-		k1 = sila(planet.vrniPolozaj());
+		k1 = sila(planeti, planet.vrniPolozaj(), planet.getIme());
 		l1[0] = planet.vrniHitrost().vrniElement(1);
 		l1[1] = planet.vrniHitrost().vrniElement(2);
 		l1[2] = planet.vrniHitrost().vrniElement(3);
 		Tocka zacasniPolozaj = new Tocka(0,0,0);
 		zacasniPolozaj = planet.vrniPolozaj();
 		zacasniPolozaj.pristej(l1[0] * dt / 2, l1[1] * dt / 2, l1[2] * dt / 2);
-		k2 = sila(zacasniPolozaj);
+		k2 = sila(planeti, zacasniPolozaj, planet.getIme());
 		l2[0] = planet.vrniHitrost().vrniElement(1) * k1[0] * dt / 2;
 		l2[1] = planet.vrniHitrost().vrniElement(2) * k1[1] * dt / 2;
 		l2[2] = planet.vrniHitrost().vrniElement(3) * k1[2] * dt / 2;
 		zacasniPolozaj = planet.vrniPolozaj();
 		zacasniPolozaj.pristej(l2[0] * dt / 2, l2[1] * dt / 2, l2[2] * dt / 2);
-		k3 = sila(zacasniPolozaj);
+		k3 = sila(planeti, zacasniPolozaj, planet.getIme());
 		l3[0] = planet.vrniHitrost().vrniElement(1) * k2[0] * dt / 2;
 		l3[1] = planet.vrniHitrost().vrniElement(2) * k2[1] * dt / 2;
 		l3[2] = planet.vrniHitrost().vrniElement(3) * k2[2] * dt / 2;
 		zacasniPolozaj = planet.vrniPolozaj();
 		zacasniPolozaj.pristej(l3[0] * dt / 2, l3[1] * dt / 2, l3[2] * dt / 2);
-		k4 = sila(zacasniPolozaj);
+		k4 = sila(planeti, zacasniPolozaj, planet.getIme());
 		l4[0] = planet.vrniHitrost().vrniElement(1) * k3[0] * dt / 2;
 		l4[1] = planet.vrniHitrost().vrniElement(2) * k3[1] * dt / 2;
 		l4[2] = planet.vrniHitrost().vrniElement(3) * k3[2] * dt / 2;
@@ -89,10 +112,10 @@ public class Racunanje {
 		novaHitrost = planet.vrniHitrost().pristejTocko(dv);
 		Tocka novPremik = new Tocka(0,0,0);
 		novPremik = planet.vrniPolozaj().pristejTocko(dr);
-		
+		System.out.println(planet.getIme() + " dr: " + dr);
 		planet.nastavi(1, novPremik);
 		planet.nastavi(2, novaHitrost);
-		planet.nastavi(3, silaTocka);
+//		planet.nastavi(3, silaTocka);
 		planet.getZgodovina().add(novPremik);
 
 		return planet;
