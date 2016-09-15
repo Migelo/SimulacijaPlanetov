@@ -15,8 +15,8 @@ public class Okno extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Platno platno;
-	private Gumbi gumbi;
 	private Timer stoparca;
+	private Menu menu;
 
 	/**
 	 * Create the frame.
@@ -33,12 +33,10 @@ public class Okno extends JFrame {
 		platnoLayout.gridx = 0;
 		platnoLayout.gridy = 0;
 		kontejner.add(platno, platnoLayout);
-
-		gumbi = new Gumbi(this);
-		GridBagConstraints gumbiLayout = new GridBagConstraints();
-		gumbiLayout.gridx = 0;
-		gumbiLayout.gridy = 1;
-		kontejner.add(gumbi, gumbiLayout);
+		
+		menu = new Menu(this);
+		setJMenuBar(menu);
+		
 	}
 		
 	public void pozeni() {
