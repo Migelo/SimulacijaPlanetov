@@ -27,5 +27,6 @@ public class SimulacijePlanetov {
 		Okno okno = new Okno(planeti);
 		okno.pack();
 		okno.setVisible(true);
+		okno.pozeni();
 	}
 }
