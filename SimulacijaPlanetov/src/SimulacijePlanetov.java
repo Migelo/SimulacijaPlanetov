@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class SimulacijePlanetov {
 
 	public static void main(String[] args) {
-		double G = 6.67*Math.pow(10, -11);
 		Tocka prazna = new Tocka(0,0,0);
 		
 		double sonceMasa = 2*Math.pow(10, 30);

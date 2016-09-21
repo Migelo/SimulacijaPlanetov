@@ -7,6 +7,10 @@ import javax.swing.JMenuItem;
 
 public class Menu extends JMenuBar implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Okno okno;
 	//private Planet planet;
 	private JMenu sistemi = new JMenu("Sistemi");
