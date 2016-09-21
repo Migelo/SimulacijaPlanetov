@@ -9,16 +9,20 @@ public class Planet {
 	private Tocka pospesek;
 	private double masa;
 	private String ime;
+	private double radij;
+	private String barva;
 
 	//zgodovina premikov
 	private Vector<Tocka> zgodovina;
 
-	public Planet(Tocka polozaj, Tocka hitrost, Tocka pospesek, double masa, String ime){
+	public Planet(Tocka polozaj, Tocka hitrost, Tocka pospesek, double masa, String ime, double radij, String barva){
 		this.polozaj = polozaj;
 		this.hitrost = hitrost;
 		this.pospesek = pospesek;
 		this.masa = masa;
 		this.ime = ime;
+		this.radij = radij;
+		this.barva = barva;
 		this.zgodovina = new Vector<Tocka>();
 	}
 
@@ -78,7 +82,22 @@ public String getIme() {
 	}
 
 
-//	public void narisi(Graphics g) {
-//		g.fillOval((int)(polozaj.vrniElement(1)*100)-5+250, (int)(polozaj.vrniElement(2)*100)-5+150, 10, 10);
-//	}
+	public double getRadij() {
+		return radij;
+	}
+
+
+	public void setRadij(double radij) {
+		this.radij = radij;
+	}
+
+
+	public String getBarva() {
+		return barva;
+	}
+
+
+	public void setBarva(String barva) {
+		this.barva = barva;
+	}
 }

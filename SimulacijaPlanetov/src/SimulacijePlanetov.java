@@ -9,16 +9,16 @@ public class SimulacijePlanetov {
 		double marsMasa = 6*Math.pow(10, 23);
 		Tocka marsPolozaj = new Tocka(-1.3, 0, 0);
 		Tocka marsHitrost = new Tocka(0, -1,0);
-		Planet mars = new Planet(marsPolozaj, marsHitrost, prazna, marsMasa/sonceMasa, "mars");
+		Planet mars = new Planet(marsPolozaj, marsHitrost, prazna, marsMasa/sonceMasa, "mars", 10, "yellow" );
 		
 		double zemljaMasa = 6*Math.pow(10, 24);
 		Tocka zemljaPolozaj = new Tocka(1, 0, 0);
 		Tocka zemljaHitrost = new Tocka(0, 1.2, 0);
-		Planet zemlja = new Planet(zemljaPolozaj, zemljaHitrost, prazna, zemljaMasa/sonceMasa, "zemlja");
+		Planet zemlja = new Planet(zemljaPolozaj, zemljaHitrost, prazna, zemljaMasa/sonceMasa, "zemlja", 10, "yellow");
 
 		Tocka soncePolozaj = new Tocka(0, 0, 0);
 		Tocka sonceHitrost = new Tocka(0, 0, 0);
-		Planet sonce = new Planet(soncePolozaj, sonceHitrost, prazna, 1, "sonce");
+		Planet sonce = new Planet(soncePolozaj, sonceHitrost, prazna, 1, "sonce", 20, "yellow");
 
 		ArrayList<Planet> planeti = new ArrayList<Planet>();
 		planeti.add(mars);

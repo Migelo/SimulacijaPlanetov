@@ -18,8 +18,9 @@ public class Platno extends JPanel implements ActionListener {
 	 */
 //	private Okno okno;
 	public List<Planet> planeti;
-	public int sirina = 500;
-	public int visina = 500;
+	public int sirina = 1000;
+	public int visina = 1000;
+	Color color;
 	
 	public Platno(List<Planet> planeti){
 		super();
@@ -31,9 +32,8 @@ public class Platno extends JPanel implements ActionListener {
 	
 	public void paintComponent(Graphics g){
 		g.setColor(Color.yellow);
-		for (Planet planet : planeti){
-			g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*50)-5+sirina/2, (int)(planet.vrniPolozaj().vrniElement(2)*50)-5+visina/2, 10, 10);
-
+		for (Planet planet : planeti){		
+			g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*45)-(int)planet.getRadij()/2+sirina/2, (int)(planet.vrniPolozaj().vrniElement(2)*45)-(int)planet.getRadij()/2+visina/2, (int)planet.getRadij(), (int)planet.getRadij());
 		}
 	}
 

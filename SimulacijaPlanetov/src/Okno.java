@@ -26,7 +26,7 @@ public class Okno extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridBagLayout());
 		Container kontejner = this.getContentPane();
-		kontejner.setPreferredSize(new Dimension(700, 700));
+		kontejner.setPreferredSize(new Dimension(1200, 1200));
 		
 		platno = new Platno(planeti);		
 		GridBagConstraints platnoLayout = new GridBagConstraints();
@@ -41,7 +41,7 @@ public class Okno extends JFrame {
 		
 	public void pozeni() {
 		if (stoparca == null) {
-			stoparca = new Timer(16, platno);
+			stoparca = new Timer(10 , platno);
 		}
 		stoparca.start();
 	}
