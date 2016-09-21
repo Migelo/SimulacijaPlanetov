@@ -12,17 +12,15 @@ public class Menu extends JMenuBar implements ActionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Okno okno;
 	//private Planet planet;
 	private JMenu sistemi = new JMenu("Sistemi");
-	private JMenuItem sistem1 = new JMenuItem ("Sistem1");
-	private JMenuItem sistem2 = new JMenuItem ("Sistem2");
-	private JMenuItem sistem3 = new JMenuItem ("Sistem3");
+	private JMenuItem sistem1 = new JMenuItem ("Osoncje");
+	private JMenuItem sistem2 = new JMenuItem ("Dzabe sistem");
+	private JMenuItem sistem3 = new JMenuItem ("Binarni sistem brez planetov");
+	private JMenuItem sistem4 = new JMenuItem ("Binarni sistem s planeti");
 	
 	public Menu(Okno okno){
 		super();
-		this.okno = okno;
-		
 		izbiraSistemaMenu();
 	}
 	
@@ -32,17 +30,17 @@ public class Menu extends JMenuBar implements ActionListener{
 		sistemi.add(sistem1);
 		sistemi.add(sistem2);
 		sistemi.add(sistem3);
+		sistemi.add(sistem4);
 		
 		sistem1.addActionListener(this);
 		sistem2.addActionListener(this);
 		sistem3.addActionListener(this);
-		
+		sistem4.addActionListener(this);
 	}
 
 
-	@Override
 	public void actionPerformed(ActionEvent a) {
-		if (a.getActionCommand()=="Sistem1"){
+		if (a.getActionCommand()=="Osoncje"){
 			Tocka prazna = new Tocka(0,0,0);
 			double sonceMasa = 2*Math.pow(10, 30);
 			
@@ -106,7 +104,7 @@ public class Menu extends JMenuBar implements ActionListener{
 			okno.setVisible(true);
 			okno.pozeni();
 		}
-		else if (a.getActionCommand()=="Sistem2"){
+		else if (a.getActionCommand()=="Dzabe sistem"){
 			Tocka prazna = new Tocka(0,0,0);
 			
 			double sonceMasa = 2*Math.pow(10, 30);
@@ -128,6 +126,64 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(mars);
 			planeti.add(zemlja);
 			planeti.add(sonce);
+			Okno okno = new Okno(planeti);
+			okno.pack();
+			okno.setVisible(true);
+			okno.pozeni();
+		}
+		else if (a.getActionCommand()=="Binarni sistem brez planetov") {
+			Tocka prazna = new Tocka(0,0,0);
+			Tocka sonce1Polozaj = new Tocka(-0.5, 0, 0);
+			Tocka sonce1Hitrost = new Tocka(0, -0.85, 0);
+			Planet sonce1 = new Planet(sonce1Polozaj, sonce1Hitrost, prazna, 1, "sonce1");
+			
+			//double sonce2Masa = 6*Math.pow(10, 32);
+			Tocka sonce2Polozaj = new Tocka(0.5, 0, 0);
+			Tocka sonce2Hitrost = new Tocka(0, 0.85, 0);
+			Planet sonce2 = new Planet(sonce2Polozaj, sonce2Hitrost, prazna, 1, "sonce2");
+
+			ArrayList<Planet> planeti = new ArrayList<Planet>();
+			planeti.add(sonce1);
+			planeti.add(sonce2);
+			Okno okno = new Okno(planeti);
+			okno.pack();
+			okno.setVisible(true);
+			okno.pozeni();
+		}
+		else if (a.getActionCommand()=="Binarni sistem s planeti") {
+			Tocka prazna = new Tocka(0,0,0);
+			double sonceMasa = 2*Math.pow(10, 32);
+			Tocka sonce1Polozaj = new Tocka(-0.5, 0, 0);
+			Tocka sonce1Hitrost = new Tocka(0, -0.85, 0);
+			Planet sonce1 = new Planet(sonce1Polozaj, sonce1Hitrost, prazna, 1, "sonce1");
+			
+			//double sonce2Masa = 6*Math.pow(10, 32);
+			Tocka sonce2Polozaj = new Tocka(0.5, 0, 0);
+			Tocka sonce2Hitrost = new Tocka(0, 0.85, 0);
+			Planet sonce2 = new Planet(sonce2Polozaj, sonce2Hitrost, prazna, 1, "sonce2");
+
+			Tocka planeticPolozaj = new Tocka(0, 0, 0);
+			Tocka planeticHitrost = new Tocka (0, 0, 0);
+			double planeticMasa = 6*Math.pow(10, 26);
+			Planet planetic = new Planet(planeticPolozaj, planeticHitrost, prazna, planeticMasa/sonceMasa , "sonce");
+			
+			Tocka planetic1Polozaj = new Tocka(0, 1.5, 0);
+			Tocka planetic1Hitrost = new Tocka (-1, 0, 0);
+			double planetic1Masa = 6*Math.pow(10, 26);
+			Planet planetic1 = new Planet(planetic1Polozaj, planetic1Hitrost, prazna, planetic1Masa/sonceMasa , "sonce");
+			
+			Tocka planetic2Polozaj = new Tocka(0, -1.2, 0);
+			Tocka planetic2Hitrost = new Tocka (1.1, 0, 0);
+			double planetic2Masa = 3*Math.pow(10, 26);
+			Planet planetic2 = new Planet(planetic2Polozaj, planetic2Hitrost, prazna, planetic2Masa/sonceMasa , "sonce");
+
+			ArrayList<Planet> planeti = new ArrayList<Planet>();
+			planeti.add(sonce1);
+			planeti.add(sonce2);
+			planeti.add(planetic);
+			planeti.add(planetic1);
+			planeti.add(planetic2);
+			
 			Okno okno = new Okno(planeti);
 			okno.pack();
 			okno.setVisible(true);
