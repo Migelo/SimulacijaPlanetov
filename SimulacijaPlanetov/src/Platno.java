@@ -33,7 +33,14 @@ public class Platno extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g){
 		g.setColor(Color.yellow);
 		for (Planet planet : planeti){		
-			g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*45)-(int)planet.getRadij()/2+sirina/2, (int)(planet.vrniPolozaj().vrniElement(2)*45)-(int)planet.getRadij()/2+visina/2, (int)planet.getRadij(), (int)planet.getRadij());
+			if (planet.getBarva() == "siva"){
+				g.setColor(Color.gray);
+				g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*45)-(int)planet.getRadij()/2+sirina/2, (int)(planet.vrniPolozaj().vrniElement(2)*45)-(int)planet.getRadij()/2+visina/2, (int)planet.getRadij(), (int)planet.getRadij());
+			}
+			else {
+				g.setColor(Color.yellow);
+				g.fillOval((int)(planet.vrniPolozaj().vrniElement(1)*45)-(int)planet.getRadij()/2+sirina/2, (int)(planet.vrniPolozaj().vrniElement(2)*45)-(int)planet.getRadij()/2+visina/2, (int)planet.getRadij(), (int)planet.getRadij());
+			}
 		}
 	}
 

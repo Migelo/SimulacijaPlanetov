@@ -49,6 +49,7 @@ public class Okno extends JFrame {
 	public void ustavi() {
 		if (stoparca != null) {
 			stoparca.stop();
+			repaint();
 		}
 	}
 }
