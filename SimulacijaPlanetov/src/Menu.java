@@ -103,6 +103,10 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(saturn);
 //			planeti.add(uran);
 //			planeti.add(neptun);
+			okno.dispose();
+			Okno okno = new Okno(planeti);
+			okno.pack();
+			okno.setVisible(true);
 			okno.pozeni();
 		}
 		
@@ -129,8 +133,12 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(mars);
 			planeti.add(zemlja);
 			planeti.add(sonce);
+			okno.dispose();
+			Okno okno = new Okno(planeti);
+			okno.pack();
+			okno.setVisible(true);
 			okno.pozeni();
-		}
+			}
 		
 		else if (a.getActionCommand()=="Binarni sistem brez planetov") {
 			okno.ustavi();
@@ -147,6 +155,10 @@ public class Menu extends JMenuBar implements ActionListener{
 			ArrayList<Planet> planeti = new ArrayList<Planet>();
 			planeti.add(sonce1);
 			planeti.add(sonce2);
+			okno.dispose();
+			Okno okno = new Okno(planeti);
+			okno.pack();
+			okno.setVisible(true);
 			okno.pozeni();
 		}
 		
@@ -184,6 +196,10 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(planetic);
 			planeti.add(planetic1);
 			planeti.add(planetic2);
+			okno.dispose();
+			Okno okno = new Okno(planeti);
+			okno.pack();
+			okno.setVisible(true);
 			okno.pozeni();
 		}
 		
