@@ -103,10 +103,7 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(saturn);
 //			planeti.add(uran);
 //			planeti.add(neptun);
-			okno.dispose();
-			Okno okno = new Okno(planeti);
-			okno.pack();
-			okno.setVisible(true);
+			okno.ponastavi(planeti);
 			okno.pozeni();
 		}
 		
@@ -133,10 +130,7 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(mars);
 			planeti.add(zemlja);
 			planeti.add(sonce);
-			okno.dispose();
-			Okno okno = new Okno(planeti);
-			okno.pack();
-			okno.setVisible(true);
+			okno.ponastavi(planeti);
 			okno.pozeni();
 			}
 		
@@ -155,10 +149,7 @@ public class Menu extends JMenuBar implements ActionListener{
 			ArrayList<Planet> planeti = new ArrayList<Planet>();
 			planeti.add(sonce1);
 			planeti.add(sonce2);
-			okno.dispose();
-			Okno okno = new Okno(planeti);
-			okno.pack();
-			okno.setVisible(true);
+			okno.ponastavi(planeti);
 			okno.pozeni();
 		}
 		
@@ -196,12 +187,8 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(planetic);
 			planeti.add(planetic1);
 			planeti.add(planetic2);
-//			okno.dispose();
-//			Okno okno = new Okno(planeti);
-//			okno.pack();
-//			okno.setVisible(true);
-//			okno.pozeni();
 			okno.ponastavi(planeti);
+			okno.pozeni();
 		}
 		
 	}
