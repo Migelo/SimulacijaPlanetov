@@ -17,6 +17,8 @@ public class Okno extends JFrame {
 	private Platno platno;
 	private Timer stoparca;
 	private Menu menu;
+	//private Planet planeti;
+	private Container kontejner;
 
 	/**
 	 * Create the frame.
@@ -25,7 +27,7 @@ public class Okno extends JFrame {
 		super();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridBagLayout());
-		Container kontejner = this.getContentPane();
+		kontejner = this.getContentPane();
 		kontejner.setPreferredSize(new Dimension(1200, 1200));
 		
 		platno = new Platno(planeti);		
@@ -36,6 +38,13 @@ public class Okno extends JFrame {
 		
 		menu = new Menu(this);
 		setJMenuBar(menu);
+		
+	}
+	public void ponastavi(List<Planet> ponastavljeno) {
+		//ustavi();
+		//planeti = ponastavljeno;
+		platno.ponastaviPlatno(ponastavljeno);
+		kontejner.repaint();
 		
 	}
 		

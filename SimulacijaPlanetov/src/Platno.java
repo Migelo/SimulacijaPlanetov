@@ -53,7 +53,9 @@ public class Platno extends JPanel implements ActionListener {
 		}
 		repaint();
 	}
-	
+	public void ponastaviPlatno(List<Planet> planeti) {
+		this.planeti = planeti;
+	}
 	
 }
 

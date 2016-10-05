@@ -196,11 +196,12 @@ public class Menu extends JMenuBar implements ActionListener{
 			planeti.add(planetic);
 			planeti.add(planetic1);
 			planeti.add(planetic2);
-			okno.dispose();
-			Okno okno = new Okno(planeti);
-			okno.pack();
-			okno.setVisible(true);
-			okno.pozeni();
+//			okno.dispose();
+//			Okno okno = new Okno(planeti);
+//			okno.pack();
+//			okno.setVisible(true);
+//			okno.pozeni();
+			okno.ponastavi(planeti);
 		}
 		
 	}
