@@ -24,10 +24,11 @@ public class Okno extends JFrame {
 	 */
 	public Okno(List<Planet> planeti) {
 		super();
+		setTitle("Simulacija planetov");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridBagLayout());
 		kontejner = this.getContentPane();
-		kontejner.setPreferredSize(new Dimension(1200, 1200));
+		kontejner.setPreferredSize(new Dimension(1000, 1000));
 		
 		platno = new Platno(planeti);		
 		GridBagConstraints platnoLayout = new GridBagConstraints();
