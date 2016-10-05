@@ -12,7 +12,7 @@ public class Menu extends JMenuBar implements ActionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//private Planet planet;
+
 	private JMenu sistemi = new JMenu("Sistemi");
 	private JMenuItem sistem1 = new JMenuItem ("Osoncje");
 	private JMenuItem sistem2 = new JMenuItem ("Dzabe sistem");
@@ -107,7 +107,7 @@ public class Menu extends JMenuBar implements ActionListener{
 			okno.pozeni();
 		}
 		
-		else if (a.getActionCommand()=="Dzabe sistem"){
+		else if (a.getActionCommand()=="Enostavni sistem"){
 			okno.ustavi();
 			Tocka prazna = new Tocka(0,0,0);
 			
@@ -139,12 +139,12 @@ public class Menu extends JMenuBar implements ActionListener{
 			Tocka prazna = new Tocka(0,0,0);
 			Tocka sonce1Polozaj = new Tocka(-0.5, 0, 0);
 			Tocka sonce1Hitrost = new Tocka(0, -0.85, 0);
-			Planet sonce1 = new Planet(sonce1Polozaj, sonce1Hitrost, prazna, 1, "sonce1", 10, "yellow");
+			Planet sonce1 = new Planet(sonce1Polozaj, sonce1Hitrost, prazna, 1, "sonce1", 20, "yellow");
 			
 			//double sonce2Masa = 6*Math.pow(10, 32);
 			Tocka sonce2Polozaj = new Tocka(0.5, 0, 0);
 			Tocka sonce2Hitrost = new Tocka(0, 0.85, 0);
-			Planet sonce2 = new Planet(sonce2Polozaj, sonce2Hitrost, prazna, 1, "sonce2", 10, "yellow");
+			Planet sonce2 = new Planet(sonce2Polozaj, sonce2Hitrost, prazna, 1, "sonce2", 20, "yellow");
 
 			ArrayList<Planet> planeti = new ArrayList<Planet>();
 			planeti.add(sonce1);

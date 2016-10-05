@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-//import gui.Platno;
 
 public class Platno extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -16,7 +15,6 @@ public class Platno extends JPanel implements ActionListener {
 	 Tukaj so stvari potrebne za platno kjer rišemo gibanje planetov.
 	 Platno riše planete, katerih položaj dobi iz stanja.
 	 */
-//	private Okno okno;
 	public List<Planet> planeti;
 	public int sirina = 1000;
 	public int visina = 1000;

@@ -17,7 +17,6 @@ public class Okno extends JFrame {
 	private Platno platno;
 	private Timer stoparca;
 	private Menu menu;
-	//private Planet planeti;
 	private Container kontejner;
 
 	/**
@@ -41,8 +40,6 @@ public class Okno extends JFrame {
 		
 	}
 	public void ponastavi(List<Planet> ponastavljeno) {
-		//ustavi();
-		//planeti = ponastavljeno;
 		platno.ponastaviPlatno(ponastavljeno);
 		kontejner.repaint();
 		

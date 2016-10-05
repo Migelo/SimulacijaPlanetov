@@ -3,7 +3,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("unused")
 public class Planet {
-	//koordinate, hitrosti in pospeški
+	//koordinate, hitrosti in pospeski
 	private Tocka polozaj;
 	private Tocka hitrost;
 	private Tocka pospesek;
@@ -48,14 +48,8 @@ public String getIme() {
 		return ime;
 	}
 
-
-
-	//ta funkcija se ne uporablja nikjer zaenk
-	public void premakni(double dx, double dy, double dz){
-		this.polozaj = this.polozaj.pristej(dx, dy, dz);
-	}
 	
-	/**Sprejme Točko "podatki" in jo nastavi elementu Planet. (1. položaj, 2. hitrost, 3. pospešek).
+	/**Sprejme Tocko "podatki" in jo nastavi elementu Planet. (1. polozaj, 2. hitrost, 3. pospesek).
 	 * @param izbira
 	 * @param podatki
 	 */
