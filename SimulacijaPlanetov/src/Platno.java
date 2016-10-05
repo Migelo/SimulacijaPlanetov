@@ -49,7 +49,7 @@ public class Platno extends JPanel implements ActionListener {
 		// edini dogodek, ki je lahko, je preracunavanje
 		// Pretvarjamo se, da je dejanski dt = 0.001, kar ni res
 		for (Planet planet : planeti){
-			Racunanje.naslednjiKorak(planeti, planet, "rk", 0.01); 
+			Racunanje.naslednjiKorak(planeti, planet, 0.01); 
 		}
 		repaint();
 	}

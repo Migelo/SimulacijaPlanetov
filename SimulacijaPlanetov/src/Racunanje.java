@@ -1,5 +1,3 @@
-
-
 public class Racunanje {
 	@SuppressWarnings("unused")
 
@@ -13,9 +11,7 @@ public class Racunanje {
 		double[] silaTocka = new double[3];
 		for (Planet planet : planeti){
 			sila = 0;
-			if (planet.getIme() == ime){
-
-			}
+			if (planet.getIme() == ime){}
 			else{
 				double radij = Math.sqrt(Math.pow((polozaj.vrniElement(1)-planet.vrniPolozaj().vrniElement(1)), 2) + Math.pow((polozaj.vrniElement(2)-planet.vrniPolozaj().vrniElement(2)), 2));		
 				sila = -planet.vrniMaso()/Math.pow(radij,3);
@@ -35,28 +31,12 @@ public class Racunanje {
 	 * @param dt
 	 * @return
 	 */
-	public static Planet naslednjiKorak(java.util.List<Planet> planeti, Planet planet, String izbira, double dt) {
-		
-//		if (izbira == "euler") {planet = Euler(planet, dt);}
-		if (izbira == "rk") {planet = RungeKutta4(planeti, planet, dt);}
-		else{throw new IllegalArgumentException("Metoda je 'euler' oz. 'rk'.");}
+	public static Planet naslednjiKorak(java.util.List<Planet> planeti, Planet planet, double dt) {
+		planet = RungeKutta4(planeti, planet, dt);
 		return planet;
 	}
 	
-	
-//	public static Planet Euler(Planet planet, double silaX, double silaY, double silaZ, double dt){
-//		Tocka silaTocka = new Tocka(silaX, silaY, silaZ);
-//		Tocka novaHitrost = new Tocka(silaX * dt + planet.vrniHitrost().vrniElement(1), silaY * dt + planet.vrniHitrost().vrniElement(2), silaZ * dt + planet.vrniHitrost().vrniElement(3));
-//		Tocka novPremik = new Tocka(novaHitrost.vrniElement(1) * dt + planet.vrniPolozaj().vrniElement(1), novaHitrost.vrniElement(2) * dt + planet.vrniPolozaj().vrniElement(2), novaHitrost.vrniElement(3) * dt + planet.vrniPolozaj().vrniElement(3));
-//		planet.nastavi(1, novPremik);
-//		planet.nastavi(2, novaHitrost);
-//		planet.nastavi(3, silaTocka);
-//		planet.getZgodovina().add(novPremik);
-//		return planet;
-//	}
-	
 	public static Planet RungeKutta4(java.util.List<Planet> planeti, Planet planet, double dt){
-		
 		double[] k1 = new double[3];
 		double[] k2 = new double[3];
 		double[] k3 = new double[3];
@@ -98,15 +78,12 @@ public class Racunanje {
 		novPremik = planet.vrniPolozaj().pristejTocko(dr);
 		planet.nastavi(1, novPremik);
 		planet.nastavi(2, novaHitrost);
-//		planet.nastavi(3, silaTocka);
 		planet.getZgodovina().add(novPremik);
-
 		return planet;
 	}
 	
 	public static double radij(Tocka polozaj){
 		double radij = Math.sqrt(Math.pow(polozaj.vrniElement(1), 2) + Math.pow(polozaj.vrniElement(2), 2) + Math.pow(polozaj.vrniElement(3), 2));
 		return radij;
-		
 	}
 }
